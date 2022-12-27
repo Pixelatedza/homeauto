@@ -1,0 +1,29 @@
+services:
+  openhab:
+    container_name: "openhab"
+    image: "openhab/openhab"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/opt/openhab/conf:/openhab/conf"
+      - "/opt/openhab/userdata:/openhab/userdata"
+      - "/opt/openhab/addons:/openhab/addons"
+    environment:
+      CRYPTO_POLICY: "unlimited"
+      USER_ID: 998
+      GROUP_ID: 997
+    restart: "unless-stopped"
+    network_mode: "host"
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto-mqtt
+    volumes:
+      - "/opt/mosquitto:/opt/mosquitto"
+      - "/opt/mosquitto/data:/opt/mosquitto/data"
+      - "/opt/mosquitto/log:/opt/mosquitto/log"
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: "unless-stopped"
+
