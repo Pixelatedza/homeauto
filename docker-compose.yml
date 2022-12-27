@@ -19,9 +19,9 @@ services:
     image: eclipse-mosquitto
     container_name: mosquitto
     volumes:
-      - "/opt/mosquitto:/opt/mosquitto"
-      - "/opt/mosquitto/data:/opt/mosquitto/data"
-      - "/opt/mosquitto/log:/opt/mosquitto/log"
+      - "/opt/mosquitto/config:/mosquitto/config"
+      - "/opt/mosquitto/data:/mosquitto/data"
+      - "/opt/mosquitto/log:/mosquitto/log"
     ports:
       - 1884:1883
       - 9002:9001
