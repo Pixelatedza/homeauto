@@ -17,13 +17,13 @@ services:
 
   mosquitto:
     image: eclipse-mosquitto
-    container_name: mosquitto-mqtt
+    container_name: mosquitto
     volumes:
       - "/opt/mosquitto:/opt/mosquitto"
       - "/opt/mosquitto/data:/opt/mosquitto/data"
       - "/opt/mosquitto/log:/opt/mosquitto/log"
     ports:
-      - 1883:1883
-      - 9001:9001
+      - 1884:1883
+      - 9002:9001
     restart: "unless-stopped"
 
